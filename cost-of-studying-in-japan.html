@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="bn">
 <head>
    <meta charset="UTF-8">
@@ -8,7 +8,7 @@
    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
    <style>
-       :root { --primary: #e60012; --primary-dark: #b3000e; --secondary: #1a1a2e; --accent: #f4d03f; --light: #f8f9fa; --dark: #0f0f1e; --text: #333; --gray: #666; --border: #e0e0e0; }
+       :root { --primary: #0B3B60; --primary-dark: #b3000e; --secondary: #1a1a2e; --accent: #f4d03f; --light: #f8f9fa; --dark: #0f0f1e; --text: #333; --gray: #666; --border: #e0e0e0; }
        * { margin: 0; padding: 0; box-sizing: border-box; }
        body { font-family: 'Hind Siliguri', sans-serif; background: var(--light); color: var(--text); line-height: 1.6; }
        .header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background: rgba(255,255,255,0.98); box-shadow: 0 2px 20px rgba(0,0,0,0.1); }
@@ -41,6 +41,7 @@
        .footer { background: var(--dark); color: white; padding: 60px 20px 20px; margin-top: 80px; text-align: center; }
        @media (max-width: 992px) { .content-grid { grid-template-columns: 1fr; } .sidebar { position: static; } .desktop-menu { display: none; } }
    </style>
+    <link rel="stylesheet" href="spatial-animations.css">
 </head>
 <body>
    <header class="header">
@@ -201,5 +202,8 @@
    <footer class="footer">
        <p>&copy; 2024 Japan Education and Job Center. All rights reserved.</p>
    </footer>
+    <script src="spatial-animations.js"></script>
 </body>
   </html>
+
+

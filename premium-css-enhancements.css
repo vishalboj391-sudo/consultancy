@@ -920,3 +920,159 @@ html {
         border-color: rgba(124, 58, 237, 0.2);
     }
 }
+
+/* =========================================
+   HYPER-PREMIUM SPATIAL ENHANCEMENTS
+   ========================================= */
+
+/* 1. Physical Grain & Deep Space Base */
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Subtle, static noise for high-end materiality */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.02;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+/* 2. Drifting Aurora Glows */
+.aurora-container {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.aurora-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.15;
+    animation: aurora-drift 20s infinite alternate var(--ease-spatial);
+}
+
+.aurora-purple { top: -10%; left: -10%; width: 50vw; height: 50vw; background: #8B5CF6; }
+.aurora-blue { top: 40%; right: -20%; width: 60vw; height: 60vw; background: var(--primary); animation-delay: -5s; }
+.aurora-cyan { bottom: -20%; left: 20%; width: 40vw; height: 40vw; background: #06B6D4; animation-delay: -10s; }
+
+@keyframes aurora-drift {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(8%, 12%) scale(1.1); }
+}
+
+/* 3. Hyper-Glass 3.0 & Shine Sweep */
+.card, .service-card, .course-card, .header.scrolled {
+    background: rgba(2, 2, 5, 0.75) !important;
+    backdrop-filter: blur(40px) saturate(200%);
+    -webkit-backdrop-filter: blur(40px) saturate(200%);
+    border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5) !important;
+}
+/* Ensure nav links are visible when header is scrolled (white/transparent) */
+.header.scrolled .desktop-menu a,
+.header.scrolled .mobile-menu a {
+    color: #111 !important; /* dark text */
+    text-shadow: none !important;
+}
+.header.scrolled .desktop-menu a:hover,
+.header.scrolled .mobile-menu a:hover {
+    color: var(--primary) !important; /* accent on hover */
+}
+.stat-box {
+    background: var(--glass-bg);
+    backdrop-filter: blur(40px) saturate(200%);
+    -webkit-backdrop-filter: blur(40px) saturate(200%);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    border-radius: 24px;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition-spatial);
+    transform-style: preserve-3d;
+}
+
+/* Simulating light passing over glass */
+.card::after, .service-card::after, .course-card::after, .stat-box::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -150%;
+    width: 50%; height: 100%;
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.04) 50%, rgba(255,255,255,0) 100%);
+    transform: skewX(-20deg);
+    animation: shine-sweep 8s infinite;
+    pointer-events: none;
+}
+
+@keyframes shine-sweep {
+    0% { left: -150%; }
+    20%, 100% { left: 200%; }
+}
+
+/* 4. Non-Sync Floating Elements */
+@keyframes spatial-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
+.spatial-float {
+    /* Duration injected via JS to ensure they are out of sync */
+    animation: spatial-float var(--float-duration, 6s) var(--ease-spatial) infinite;
+}
+
+/* 5. Silver-Chrome Typography */
+h1, h2, .section-title {
+    background: linear-gradient(to bottom, #FFFFFF 30%, #94A3B8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+}
+
+/* 6. Logo Heartbeat */
+.logo i.fa-mountain {
+    display: inline-block;
+    animation: heartbeat 3s infinite var(--ease-spatial);
+    filter: drop-shadow(0 0 12px rgba(6, 182, 212, 0.5));
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+}
+
+/* 7. Magnetic Buttons - Base Styles */
+.btn, .nav-cta {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s var(--ease-spatial);
+    border: 1px solid rgba(212, 175, 55, 0.3); /* Ascent Gold hint */
+}
+
+.btn:hover, .nav-cta:hover {
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.3); /* Soft Gold Glow */
+    border-color: rgba(212, 175, 55, 0.8);
+}
+
+/* 8. Scroll Reveal Base State */
+.spatial-reveal {
+    opacity: 0;
+    transform: scale(0.92) translateY(40px);
+    transition: opacity 0.8s var(--ease-spatial), transform 0.8s var(--ease-spatial);
+    will-change: opacity, transform;
+}
+
+.spatial-reveal.is-revealed {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
