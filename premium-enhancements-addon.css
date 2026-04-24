@@ -1,0 +1,344 @@
+/* ============================================================================
+   PREMIUM ENHANCEMENTS ADD-ON - JEJC Website
+   ============================================================================
+   
+   Safe integration CSS that enhances without breaking existing styles.
+   Place this AFTER all existing CSS in the <style> tag or as a separate file.
+   
+   Key features:
+   - Preserves existing Japanese Red color scheme (#D71518)
+   - Uses :where() for zero-specificity enhancements
+   - Adds smooth scroll-margin for anchored sections
+   - Enhances focus states for accessibility
+   - Adds performance-optimized animations
+   - Respects prefers-reduced-motion
+   ============================================================================ */
+
+/* ---------------------------------------------------------------------------
+   SAFE VARIABLE EXTENSIONS (New variables only, no conflicts)
+   --------------------------------------------------------------------------- */
+
+:root {
+  /* Animation timing - performance optimized */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Safe spacing extensions */
+  --section-gap: clamp(4rem, 8vw, 6rem);
+  --content-gap: clamp(1.5rem, 3vw, 2.5rem);
+  
+  /* Glass effect - performance safe values */
+  --glass-bg: rgba(255, 255, 255, 0.85);
+  --glass-blur: blur(16px) saturate(180%);
+}
+
+/* ---------------------------------------------------------------------------
+   SECTION SCROLL ENHANCEMENTS (Zero specificity)
+   --------------------------------------------------------------------------- */
+
+:where(section[id]) {
+  scroll-margin-top: 100px;
+}
+
+@media (max-width: 768px) {
+  :where(section[id]) {
+    scroll-margin-top: 80px;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   SMOOTH REVEAL ANIMATIONS (Respects reduced motion)
+   --------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: no-preference) {
+  :where(.reveal) {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s var(--ease-out-expo), 
+                transform 0.6s var(--ease-out-expo);
+    will-change: opacity, transform;
+  }
+  
+  :where(.reveal.active) {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  :where(.reveal-delay-1) { transition-delay: 0.1s; }
+  :where(.reveal-delay-2) { transition-delay: 0.2s; }
+  :where(.reveal-delay-3) { transition-delay: 0.3s; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :where(.reveal) {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   BUTTON ENHANCEMENTS (Preserves existing .btn classes)
+   --------------------------------------------------------------------------- */
+
+:where(.btn, .btn-primary, .btn-secondary, .btn-enroll, .btn-submit, .btn-dashboard) {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle shimmer effect on hover - performance safe */
+@media (prefers-reduced-motion: no-preference) {
+  :where(.btn-primary)::before,
+  :where(.btn-enroll)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    transition: left 0.6s ease;
+  }
+  
+  :where(.btn-primary:hover)::before,
+  :where(.btn-enroll:hover)::before {
+    left: 100%;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   CARD MICRO-INTERACTIONS (Safe enhancement layer)
+   --------------------------------------------------------------------------- */
+
+:where(.service-card, .guide-card, .testimonial-card, .course-card, .feature-card) {
+  transition: transform 0.3s var(--ease-smooth), 
+              box-shadow 0.3s var(--ease-smooth);
+  will-change: transform;
+  contain: layout style;
+}
+
+:where(.service-card:hover, .guide-card:hover, .testimonial-card:hover) {
+  transform: translateY(-8px);
+}
+
+:where(.course-card:hover) {
+  transform: translateY(-12px);
+}
+
+/* ---------------------------------------------------------------------------
+   GLASS MORPHISM ENHANCEMENTS (Performance optimized)
+   --------------------------------------------------------------------------- */
+
+/* Only apply to header when scrolled - saves GPU on initial load */
+:where(.header.scrolled) {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Mobile optimization - disable blur on low-power devices */
+@media (max-width: 768px) {
+  :where(.header.scrolled) {
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   FOCUS STATES - Accessibility enhancement
+   --------------------------------------------------------------------------- */
+
+:where(a, button, input, select, textarea):focus-visible {
+  outline: 3px solid var(--primary, #D71518);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+:where(.btn):focus-visible {
+  outline-color: var(--primary, #D71518);
+  outline-offset: 3px;
+}
+
+/* ---------------------------------------------------------------------------
+   GALLERY ENHANCEMENTS
+   --------------------------------------------------------------------------- */
+
+:where(.gallery-item) {
+  contain: layout style paint;
+}
+
+:where(.gallery-item img) {
+  transition: transform 0.5s var(--ease-smooth);
+  will-change: transform;
+}
+
+:where(.gallery-item:hover img) {
+  transform: scale(1.08);
+}
+
+/* ---------------------------------------------------------------------------
+   FORM ENHANCEMENTS
+   --------------------------------------------------------------------------- */
+
+:where(input:focus, select:focus, textarea:focus) {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* ---------------------------------------------------------------------------
+   PROGRESS BAR SHIMMER (Performance safe)
+   --------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: no-preference) {
+  :where(.progress-bar)::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.3),
+      transparent
+    );
+    animation: shimmer 2s infinite;
+  }
+  
+  @keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   LIGHTBOX ENHANCEMENTS
+   --------------------------------------------------------------------------- */
+
+:where(.lightbox) {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+@media (max-width: 768px) {
+  :where(.lightbox) {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   CHAT WIDGET MICRO-INTERACTIONS
+   --------------------------------------------------------------------------- */
+
+:where(.chat-toggle) {
+  transition: transform 0.3s var(--ease-out-back), 
+              box-shadow 0.3s ease;
+}
+
+:where(.chat-toggle:hover) {
+  transform: scale(1.1);
+}
+
+:where(.chat-box) {
+  transition: opacity 0.3s ease, 
+              transform 0.3s var(--ease-out-expo),
+              visibility 0.3s ease;
+}
+
+/* ---------------------------------------------------------------------------
+   MODAL ENHANCEMENTS
+   --------------------------------------------------------------------------- */
+
+:where(.modal-overlay) {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: opacity 0.3s ease;
+}
+
+:where(.modal) {
+  transition: transform 0.4s var(--ease-out-expo), 
+              opacity 0.3s ease;
+}
+
+/* ---------------------------------------------------------------------------
+   DASHBOARD PANEL ENHANCEMENTS
+   --------------------------------------------------------------------------- */
+
+:where(.dashboard-panel) {
+  transition: transform 0.4s var(--ease-out-expo);
+  will-change: transform;
+  contain: layout;
+}
+
+:where(.dashboard-overlay) {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: opacity 0.3s ease;
+}
+
+/* ---------------------------------------------------------------------------
+   LINK UNDERLINE ENHANCEMENTS (Subtle premium feel)
+   --------------------------------------------------------------------------- */
+
+:where(.guide-card a, .footer-column a) {
+  position: relative;
+  text-decoration: none;
+}
+
+:where(.guide-card a)::after,
+:where(.footer-column a)::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary, #D71518);
+  transition: width 0.3s var(--ease-smooth);
+  border-radius: 2px;
+}
+
+:where(.guide-card a:hover)::after,
+:where(.footer-column a:hover)::after {
+  width: 100%;
+}
+
+/* ---------------------------------------------------------------------------
+   PRINT OPTIMIZATIONS
+   --------------------------------------------------------------------------- */
+
+@media print {
+  :where(.header, .chat-widget, .whatsapp-float, .lightbox, 
+         .modal-overlay, .dashboard-overlay, .dashboard-panel) {
+    display: none !important;
+  }
+  
+  :where(.section) {
+    break-inside: avoid;
+    padding: 2rem 0 !important;
+  }
+  
+  :where(.hero) {
+    min-height: auto !important;
+    background: white !important;
+  }
+  
+  :where(.btn) {
+    border: 1px solid #ccc !important;
+    background: white !important;
+    color: black !important;
+    box-shadow: none !important;
+  }
+}
+
+/* ============================================================================
+   END OF PREMIUM ENHANCEMENTS
+   ============================================================================ */

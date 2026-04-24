@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japanese Language Course N5 N4 N3 | JLPT Preparation | JEJC</title>
+    <meta name="description" content>JLPT N5, N4, N3 course complete guide. Best Japanese language learning course
+    structure in Bangladesh, exam preparation, and career benefits. Complete N5 in 4 months at JEJC.">
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #e60012;
+            --primary-dark: #b3000e;
+            --secondary: #1a1a2e;
+            --accent: #f4d03f;
+            --light: #f8f9fa;
+            --dark: #0f0f1e;
+            --text: #333;
+            --gray: #666;
+            --border: #e0e0e0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Hind Siliguri', sans-serif;
+            background: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        .logo-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .desktop-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .desktop-menu a {
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 500;
+        }
+
+        .desktop-menu a:hover {
+            color: var(--primary);
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white !important;
+            padding: 10px 20px !important;
+            border-radius: 50px;
+        }
+
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .mobile-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--secondary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 150px 20px 80px;
+            margin-top: 70px;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+        }
+
+        .content-section {
+            padding: 80px 20px;
+            background: white;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 50px;
+        }
+
+        .main-content h2 {
+            color: var(--secondary);
+            font-size: 2rem;
+            margin: 30px 0 20px;
+            border-left: 4px solid var(--primary);
+            padding-left: 15px;
+        }
+
+        .main-content h3 {
+            color: var(--primary);
+            font-size: 1.4rem;
+            margin: 25px 0 15px;
+        }
+
+        .main-content p {
+            line-height: 1.9;
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+
+        .level-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 25px 0;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .level-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .level-card h4 {
+            color: var(--secondary);
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .level-card h4 span {
+            background: var(--primary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+        }
+
+        .feature-item i {
+            color: var(--primary);
+        }
+
+        .sidebar {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+
+        .sidebar-box {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .sidebar-box h4 {
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: none;
+            cursor: pointer;
+            font-family: 'Hind Siliguri', sans-serif;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+        }
+
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 20px 20px;
+            margin-top: 80px;
+        }
+
+        @media (max-width: 992px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+            }
+
+            .desktop-menu {
+                display: none;
+            }
+
+            .mobile-toggle {
+                display: flex;
+            }
+
+            .feature-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="nav-container">
+             <a href="index.html" class="logo">
+                <img src="logo.png" alt="Apex educational consultancy">
+                <div class="logo-text">
+                    <span class="logo-title">Apex</span>
+                    <span class="logo-subtitle">Consultancy</span>
+                </div>
+            </a>
+            <nav>
+                <ul class="desktop-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="study-in-japan.html">Study</a></li>
+                    <li><a href="japan-student-visa.html">Visa</a></li>
+                    <li><a href="japanese-language-course.html" style="color: var(--primary);">Language Classes</a></li>
+                    <li><a href="jobs.html">Careers</a></li>
+                    <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-toggle"><span></span><span></span><span></span></div>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Japanese Language Course</h1>
+            <p>JLPT & NAT-TEST (N5, N4, N3) Preparation - Nepal's Premier Japanese Language Training Center</p>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            <div class="content-grid">
+                <div class="main-content">
+                    <p style="font-size: 1.2rem; color: var(--gray); margin-bottom: 30px;">
+                        Achieving a <strong>Japanese Language Proficiency Test (JLPT)</strong> or
+                        <strong>NAT-TEST</strong> qualification is the primary requirement for Nepali students to secure
+                        a COE and Visa for Japan. At Apex Consultancy, we offer structured modules from N5 to N3 to
+                        ensure your success.
+                    </p>
+
+                    <h2>The Importance of Japanese Proficiency</h2>
+                    <p>For Nepali students and workers, language proficiency is not just a skill—it is a legal
+                        requirement for the visa process. High scores lead to:</p>
+                    <ul style="margin-left: 20px; margin-bottom: 20px;">
+                        <li>High COE (Certificate of Eligibility) approval rates</li>
+                        <li>Direct admission into prestigious Japanese Universities and Vocational Schools</li>
+                        <li>Eligibility for various merit-based scholarships in Japan</li>
+                        <li>Higher-paying part-time jobs (Baito) immediately upon arrival</li>
+                    </ul>
+
+                    <h2>Our Specialized Courses</h2>
+
+                    <div class="level-card">
+                        <h4><i class="fas fa-star"></i> JLPT/NAT N5 <span>Beginner</span></h4>
+                        <p>The foundation level required for Language School admission. We focus on daily greetings and
+                            basic literacy.</p>
+                        <div class="feature-list">
+                            <div class="feature-item"><i class="fas fa-check-circle"></i> Duration: 4-5 months</div>
+                            <div class="feature-item"><i class="fas fa-check-circle"></i> Hiragana, Katakana & Basic
+                                Kanji (100+)</div>
+                            <div class="feature-item"><i class="fas fa-check-circle"></i> 800+ Essential Vocabulary
+                            </div>
+                            <div class="feature-item"><i class="fas fa-check-circle"></i> Basic Sentence Structures &
+                                Grammar</div>
+                        </div>
+                    </div>
+
+                    <div class="level-card">
+                        <h4><i class="fas fa-star"></i> <i class="fas fa-star"></i> JLPT/NAT N4 <span>Elementary</span>
+                        </h4>
+                        <p>Designed for daily survival and intermediate communication. Highly recommended for SSW
+                            (Specified Skilled Worker) candidates.</p>
+                        <div class="feature-list">
+                            <div class="feature-item"><i class="fas fa-check-circle"></i> Duration: 5-6 months</div>
+                            <div class="feature-item"><i class="fas fa-check-circle"></i> 1,500+ Vocabulary & 300+ Kanji
+                            </div>
+                            <div class="feature-item"><i class="fas fa-check-circle"></i> Listening comprehension for
+                                daily life</div>
+                            <div class="feature-item"><i class="fas fa-check-circle"></i> Advanced Grammar for complex
+                                sentences</div>
+                        </div>
+                    </div>
+
+                    <div class="level-card">
+                        <h4><i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> JLPT/NAT
+                            N3 <span>Intermediate</span></h4>
+                        <p>The standard requirement for professional work and University entrance. Opens doors to
+                            high-tier career opportunities.</p>
+                        <div class="feature-list">
+                            <div class="feature-item"><i class="fas fa-check-circle"></i> 3,500+ Vocabulary & 600+ Kanji
+                            </div>
+                            <div class="feature-item"><i class="fas fa-check-circle"></i> Business Japanese & Keigo
+                                (Honorifics)</div>
+                            <div class="feature-item"><i class="fas fa-check-circle"></i> Complex reading comprehension
+                                & News listening</div>
+                        </div>
+                    </div>
+
+                    <h2>Why Learn at Apex Consultancy?</h2>
+                    <ul style="margin-left: 20px; margin-bottom: 20px;">
+                        <li><strong>Qualified Instructors:</strong> Teachers with JLPT N1/N2 levels and years of
+                            teaching experience.</li>
+                        <li><strong>Customized Materials:</strong> Free textbooks and JLPT-aligned workbooks.</li>
+                        <li><strong>Nepali-Japanese Context:</strong> Concepts explained through easy-to-understand
+                            Nepali parallels.</li>
+                        <li><strong>Digital Learning:</strong> Multimedia classrooms for better listening and
+                            pronunciation practice.</li>
+                        <li><strong>Regular Mock Exams:</strong> Weekly tests modeled after the real NAT/JLPT formats.
+                        </li>
+                    </ul>
+
+                    <h2>Global Career Benefits</h2>
+                    <p>Proficiency in Japanese unlocks diverse pathways for Nepali youth:</p>
+                    <ul style="margin-left: 20px; margin-bottom: 20px;">
+                        <li><strong>Study in Japan:</strong> Smooth transition to higher education.</li>
+                        <li><strong>IT & Engineering:</strong> Massive demand for bilingual tech professionals in Japan
+                            and Nepal.</li>
+                        <li><strong>Interpretation/Translation:</strong> Freelance opportunities with Japanese NGOs and
+                            trekking companies in Nepal.</li>
+                        <li><strong>SSW Program:</strong> Direct eligibility for the Specified Skilled Worker visa
+                            pathway.</li>
+                    </ul>
+
+                    <div
+                        style="margin-top: 40px; padding: 30px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; border-radius: 20px; text-align: center;">
+                        <h3 style="margin-bottom: 15px;">Your Journey to Japan Starts Here</h3>
+                        <p style="margin-bottom: 20px;">Enroll in our upcoming N5/NAT-TEST batch and start your
+                            documentation process today.</p>
+                        <a href="https://wa.me/9779868765092?text=I%20am%20interested%20in%20joining%20the%20Japanese%20Language%20Class.%20Please%20provide%20batch%20timings."
+                            class="btn"
+                            style="background: white; color: var(--primary); text-decoration: none; padding: 12px 25px; border-radius: 5px; font-weight: bold;">Inquire
+                            via WhatsApp</a>
+                    </div>
+                </div>
+
+                <aside class="sidebar">
+                    <div class="sidebar-box">
+                        <h4><i class="fas fa-info-circle"></i> Quick Info</h4>
+                        <p style="margin-bottom: 10px;"><strong>Course Fee:</strong> NPR 15,000 — 25,000</p>
+                        <p style="margin-bottom: 10px;"><strong>Class Timings:</strong> 7 AM - 6 PM (Morning/Evening
+                            Batches)</p>
+                        <p style="margin-bottom: 10px;"><strong>Admission:</strong> Open for NAT/JLPT Batches</p>
+                    </div>
+
+                    <div class="sidebar-box" style="background: var(--primary); color: white;">
+                        <h4 style="color: white;">Free Information Seminar</h4>
+                        <p style="margin-bottom: 15px;">Join our weekly seminar on "Life & Study in Japan" every
+                            Saturday.</p>
+                        <a href="https://wa.me/9779868765092?text=I%20want%20to%20register%20for%20the%20free%20Saturday%20seminar."
+                            class="btn"
+                            style="background: white; color: var(--primary); width: 100%; display: flex; justify-content: center; text-decoration: none; padding: 10px 0; border-radius: 5px; font-weight: bold;">
+                            Register for Free
+                        </a>
+                    </div>
+                </aside>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer"
+        style="background: var(--dark); color: white; padding: 60px 20px 20px; margin-top: 80px; text-align: center;">
+        <div class="container">
+            <div style="margin-bottom: 20px;">
+                <i class="fas fa-mountain" style="font-size: 2rem; color: var(--primary); margin-bottom: 10px;"></i>
+                <h3 style="color: white;">Apex Consultancy</h3>
+                <p style="color: rgba(255,255,255,0.7);">Bridging Nepal to Japan with Excellence.</p>
+            </div>
+            <p style="font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
+                &copy; 2026 Apex Consultancy. All rights reserved. | Licensed by Ministry of Education, Nepal.
+            </p>
+        </div>
+    </footer>
+</body>
+
+</html>
